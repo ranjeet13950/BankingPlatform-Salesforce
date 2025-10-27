@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="🧾 Create New Account" icon-name="standard:account">
+        <div class="form-container">
+            <lightning-input label="Account Name" value={name} onchange={handleInputChange} data-field="name"></lightning-input>
+
+            <lightning-combobox
+                label="Select Bank"
+                placeholder="Select Bank"
+                value={bankId}
+                options={bankOptions}
+                onchange={handleInputChange}
+                data-field="bankId">
+            </lightning-combobox>
+
+            <lightning-combobox
+                label="Select Branch"
+                placeholder="Select Branch"
+                value={branchId}
+                options={branchOptions}
+                onchange={handleInputChange}
+                data-field="branchId">
+            </lightning-combobox>
+
+             <lightning-combobox
+                label="Account Type"
+                placeholder="Select Account Type"
+                value={accountType}
+                options={accountTypeOptions}
+                onchange={handleInputChange}
+                data-field="accountType">
+            </lightning-combobox>
+            
+            <lightning-input type="number" label="Daily Limit" value={dailyLimit} onchange={handleInputChange} data-field="dailyLimit"></lightning-input>
+            <lightning-input type="number" label="Minimum Balance" value={minimumBalance} onchange={handleInputChange} data-field="minimumBalance"></lightning-input>
+            <lightning-input label="Phone Number" value={phoneNumber} onchange={handleInputChange} data-field="phoneNumber"></lightning-input>
+
+            <div class="btn-container">
+                <lightning-button variant="brand" label="Create Account" onclick={handleCreate}></lightning-button>
+            </div>
+        </div>
+
+        <template if:true={showToast}>
+            <div class="toast success">✅ Account created successfully!</div>
+        </template>
+    </lightning-card>
+</template>

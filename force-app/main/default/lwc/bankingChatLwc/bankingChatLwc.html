@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title="Banking AI Assistant" icon-name="utility:einstein">
+        <div class="slds-p-around_medium">
+            <!-- Input Area --><lightning-textarea
+                label="Your Question:"
+                value={userInput}
+                onchange={handleInputChange}
+                placeholder="e.g., What's my balance? Show my last 5 transactions."
+            ></lightning-textarea>
+
+            <lightning-button
+                label={buttonLabel}
+                variant="brand" onclick={handleGetResponse}
+                disabled={isLoading}
+                class="slds-m-top_medium slds-float_right"
+            ></lightning-button>
+        </div>
+
+        <!-- Spacer to clear the float --><div class="slds-clearfix slds-p-bottom_medium"></div>
+
+        <!-- Response Area --><!-- We now check for formattedAiResponse to render this block --><template if:true={formattedAiResponse}>
+            <div class="slds-m-around_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Assistant's Response:</h2>
+                <!-- 
+                  Use lightning-formatted-rich-text. 
+                  This component safely renders HTML (like <br> tags)
+                  and avoids the DOM timing error.
+                --><div class="response-box slds-p-around_medium">
+                    <lightning-formatted-rich-text
+                        value={formattedAiResponse}
+                    ></lightning-formatted-rich-text>
+                </div>
+            </div>
+        </template>
+
+        <!-- Error Area --><template if:true={error}>
+            <div class="slds-m-around_medium">
+                <div class="slds-theme_error slds-p-around_medium">
+                    {error}
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>
+

@@ -1,0 +1,53 @@
+:host {
+    --slds-c-card-color-background: #fcfdff;
+    --slds-c-card-radius-border: 12px;
+    --slds-c-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Style the textarea for a softer look */
+lightning-textarea {
+    --slds-c-textarea-radius-border: 8px;
+    --slds-c-textarea-color-border: #c9dceb;
+}
+
+lightning-textarea:focus-within {
+    --slds-c-textarea-color-border: #0059b8;
+    --sds-c-textarea-shadow: 0 0 3px #0059b8;
+}
+
+/* FORCEFUL BUTTON OVERRIDE:
+  Since the CSS variables are not working, we will target the 
+  underlying SLDS class rendered by <lightning-button variant="brand">.
+*/
+.slds-button_brand {
+    background: linear-gradient(to right, #008a00, #00af00) !important; /* Green gradient */
+    border-color: #007a00 !important;
+    color: #ffffff !important; /* White text */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.slds-button_brand:hover {
+    background: linear-gradient(to right, #007a00, #009e00) !important; /* Darker green */
+    border-color: #005c00 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* This is the key class for formatting the AI response */
+.response-box {
+    background-color: #f4f6f9;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    white-space: pre-wrap; /* This is crucial for showing newlines */
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    line-height: 1.6;
+    color: #080707;
+}
+
+/* Style for error messages */
+.slds-theme_error {
+    border-radius: 8px;
+}
+

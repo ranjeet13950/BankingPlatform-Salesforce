@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Banking Chat Assistant">
+        <div class="slds-p-around_medium">
+            <template for:each={messages} for:item="msg">
+                <p key={msg.id}><strong>{msg.role}:</strong> {msg.content}</p>
+            </template>
+
+            <lightning-textarea 
+                label="Ask me anything" 
+                value={userInput} 
+                onchange={handleInputChange}>
+            </lightning-textarea>
+
+            <lightning-button label="Send" onclick={sendMessage} class="slds-m-top_small"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

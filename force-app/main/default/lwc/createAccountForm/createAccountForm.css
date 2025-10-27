@@ -1,0 +1,33 @@
+.form-container {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(145deg, #f9fafc, #eef2f7);
+    border-radius: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+lightning-input,
+lightning-combobox {
+    margin-bottom: 1rem;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.toast {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.toast.success {
+    background-color: #2ecc71;
+}
+
+.toast.error {
+    background-color: #e74c3c;
+}

@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="🏦 Account Details" icon-name="standard:account">
+        <div class="account-container">
+            <!-- Spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+            </template>
+
+            <!-- Account Info -->
+            <template if:true={account}>
+                <div class="account-card slds-p-around_medium">
+                    <div class="account-header">
+                        <h2 class="account-name">{account.Name}</h2>
+                        <span class={balanceClass}>₹{account.Balance__c}</span>
+                    </div>
+
+                    <div class="account-info">
+                        <p><b>Account Number:</b> {account.Account_Number__c}</p>
+                        <p><b>Phone:</b> {account.Phone_Number__c}</p>
+                        <p><b>Type:</b> {account.Account_Type__c}</p>
+                        <p><b>Created On:</b> {account.CreatedDate}</p>
+                    </div>
+
+                    <div class="button-area">
+                        <lightning-button
+                            label="Refresh Details"
+                            variant="brand"
+                            icon-name="utility:refresh"
+                            onclick={handleRefresh}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Error -->
+            <template if:true={error}>
+                <p class="error-message">⚠️ Unable to load account details.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

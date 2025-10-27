@@ -1,0 +1,77 @@
+.account-container {
+    background: linear-gradient(to bottom right, #f8faff, #e9f0ff);
+    min-height: 250px;
+    border-radius: 1rem;
+}
+
+.account-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.account-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dce3f0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.account-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a2e5a;
+}
+
+.account-info p {
+    font-size: 0.95rem;
+    color: #2f3b52;
+    margin: 4px 0;
+}
+
+.balance {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #e5f9e0;
+    color: #1e7e34;
+}
+
+.low-balance {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #ffe5e5;
+    color: #c82333;
+}
+
+.normal-balance {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #e5f9e0;
+    color: #1e7e34;
+}
+
+.button-area {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.error-message {
+    color: #c82333;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+}

@@ -1,0 +1,60 @@
+/* Card wrapper */
+.lightning-card {
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.2s;
+}
+
+/* Hover effect on card */
+.lightning-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Card header gradient */
+.lightning-card .slds-card__header {
+    background: linear-gradient(90deg, #4a90e2, #50e3c2);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+/* Card body padding */
+.slds-p-around_medium {
+    padding: 1rem !important;
+}
+
+/* Datatable styling */
+.lightning-datatable {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.08);
+}
+
+/* Table row hover effect */
+.lightning-datatable .slds-hint-parent:hover {
+    background-color: #e6f0ff !important;
+    cursor: pointer;
+}
+
+/* Table header styling */
+.lightning-datatable .slds-table thead th {
+    background-color: #f0f4ff;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Error message */
+.slds-text-color_error {
+    font-weight: bold;
+    color: #c23934;
+    margin-top: 10px;
+}
+
+/* No data message */
+p {
+    font-style: italic;
+    color: #555;
+}

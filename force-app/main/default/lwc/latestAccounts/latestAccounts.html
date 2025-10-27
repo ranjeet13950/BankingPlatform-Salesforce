@@ -1,0 +1,27 @@
+<template>
+    <lightning-card class="latest-accounts-card">
+        <header class="slds-card__header">
+            <div class="slds-card__header-title">
+                Latest 5 Accounts
+            </div>
+        </header>
+        <div class="slds-p-around_medium">
+            <template if:true={accounts}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={accounts}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+
+            <template if:false={accounts}>
+                <p>No accounts found.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
