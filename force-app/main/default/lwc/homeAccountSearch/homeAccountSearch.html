@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="🔍 Find Your Account" icon-name="standard:search">
+        <div class="slds-p-around_medium search-container">
+            <lightning-input 
+                type="search" 
+                label="Search by Name or Account Number"
+                value={searchKey}
+                onchange={handleSearchChange}
+                placeholder="Enter Account Name or Number">
+            </lightning-input>
+
+            <template if:true={accounts}>
+                <template if:true={accounts.length}>
+                    <ul class="result-list">
+                        <template for:each={accounts} for:item="acc">
+                            <li key={acc.Id} class="result-item" onclick={handleAccountClick} data-id={acc.Id}>
+                                <div class="acc-name">{acc.Name}</div>
+                                <div class="acc-number">#{acc.Account_Number__c}</div>
+                                <div class="acc-type">{acc.Account_Type__c}</div>
+                                <div class="acc-balance">💰 ₹{acc.Balance__c}</div>
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+                <template if:false={accounts.length}>
+                    <p class="no-results">No accounts found.</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

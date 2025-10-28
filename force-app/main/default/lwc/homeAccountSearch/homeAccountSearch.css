@@ -1,0 +1,52 @@
+.search-container {
+    background: #f4f6f9;
+    border-radius: 0.8rem;
+}
+
+.result-list {
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.result-item {
+    background: #ffffff;
+    margin-bottom: 0.6rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.result-item:hover {
+    background: #f0f8ff;
+    transform: scale(1.02);
+}
+
+.acc-name {
+    font-weight: 600;
+    color: #032d60;
+}
+.acc-number {
+    color: #0070d2;
+    font-size: 0.9rem;
+}
+.acc-type {
+    color: #444;
+    text-align: right;
+}
+.acc-balance {
+    text-align: right;
+    color: #28a745;
+    font-weight: 600;
+}
+.no-results {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 1rem;
+}
