@@ -1,0 +1,97 @@
+<template>
+    <lightning-card title="Account Dashboard">
+        <template if:true={hasData}>
+            <lightning-accordion allow-multiple-sections-open active-section-name="Account">
+                
+                <!-- Account Section -->
+                <lightning-accordion-section name="Account" label="Account Information">
+                    <p><b>Account Name:</b> {accountData.account.Name}</p>
+                    <p><b>Account Number:</b> {accountData.account.Account_Number__c}</p>
+                    <p><b>Account Type:</b> {accountData.account.Account_Type__c}</p>
+                    <p><b>Balance:</b> {accountData.account.Balance__c}</p>
+                    <p><b>Daily Limit:</b> {accountData.account.Daily_Limit__c}</p>
+                </lightning-accordion-section>
+
+                <!-- Branch Section -->
+                <lightning-accordion-section name="Branch" label="Branch Details">
+                    <p><b>Branch Name:</b> {accountData.account.Branch__r.Name}</p>
+                    <p><b>City:</b> {accountData.account.Branch__r.City__c}</p>
+                    <p><b>State:</b> {accountData.account.Branch__r.State__c}</p>
+                    <p><b>Contact:</b> {accountData.account.Branch__r.Contact__c}</p>
+                </lightning-accordion-section>
+
+                <!-- Bank Section -->
+                <lightning-accordion-section name="Bank" label="Bank Details">
+                    <p><b>Bank Name:</b> {accountData.account.Bank__r.Name}</p>
+                    <p><b>Type of Bank:</b> {accountData.account.Bank__r.Type_of_Bank__c}</p>
+                    <p><b>Sector:</b> {accountData.account.Bank__r.Sector__c}</p>
+                </lightning-accordion-section>
+
+                <!-- Transactions Section -->
+                <lightning-accordion-section name="Transactions" label="Transaction History">
+                    <template if:true={accountData.transactions}>
+                        <template for:each={accountData.transactions} for:item="txn">
+                            <div key={txn.Id} class="slds-box slds-m-bottom_small">
+                                <p><b>Transaction Name:</b> {txn.Name}</p>
+                                <p><b>Type:</b> {txn.Transaction_Type__c}</p>
+                                <p><b>Amount:</b> {txn.Amount__c}</p>
+                                <p><b>Date:</b> {txn.Date__c}</p>
+                                <p><b>Status:</b> {txn.Status__c}</p>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={accountData.transactions}>
+                        <p>No Transactions Found.</p>
+                    </template>
+                </lightning-accordion-section>
+
+                <!-- Loans Section -->
+                <lightning-accordion-section name="Loans" label="Loans">
+                    <template if:true={accountData.loans}>
+                        <template for:each={accountData.loans} for:item="loan">
+                            <div key={loan.Id} class="slds-box slds-m-bottom_small">
+                                <p><b>Loan Name:</b> {loan.Name}</p>
+                                <p><b>Loan Type:</b> {loan.Loan_Type__c}</p>
+                                <p><b>Loan Amount:</b> {loan.Loan_Amount__c}</p>
+                                <p><b>Remaining Amount:</b> {loan.Remaining_Amount__c}</p>
+                                <p><b>Interest Rate:</b> {loan.Rate_of_interest__c}%</p>
+                                <p><b>EMI:</b> {loan.EMI__c}</p>
+                                <p><b>Status:</b> {loan.Status__c}</p>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={accountData.loans}>
+                        <p>No Loans Found.</p>
+                    </template>
+                </lightning-accordion-section>
+
+                <!-- Loan Details Section -->
+                <lightning-accordion-section name="LoanDetails" label="Loan Details">
+                    <template if:true={accountData.loanDetails}>
+                        <template for:each={accountData.loanDetails} for:item="detail">
+                            <div key={detail.Id} class="slds-box slds-m-bottom_small">
+                                <p><b>Loan Detail Name:</b> {detail.Name}</p>
+                                <p><b>Amount Taken:</b> {detail.Amount_taken__c}</p>
+                                <p><b>Start Date:</b> {detail.Start_Date__c}</p>
+                                <p><b>End Date:</b> {detail.End_Date__c}</p>
+                                <p><b>Status:</b> {detail.Status__c}</p>
+                                <p><b>Loan:</b> {detail.Loan__r.Name}</p>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={accountData.loanDetails}>
+                        <p>No Loan Details Found.</p>
+                    </template>
+                </lightning-accordion-section>
+
+            </lightning-accordion>
+        </template>
+
+        <!-- Spinner while loading -->
+        <template if:false={hasData}>
+            <div class="slds-p-around_medium slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading Account Data..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+    </lightning-card>
+</template>
